@@ -7,65 +7,20 @@ FROM debian:buster-slim
 MAINTAINER Peter
 
 
-RUN \
-    apt-get update && apt-get -y install \
-    apt-transport-https \
-    wget ca-certificates \
-    apt-utils \
-    gnupg \
-    libzip4 \
-    libavahi-client3 \
-    libavahi-client-dev \
-    insserv
-    
-#    insserv locales lsb-release
-#libxslt1.1 libedit2 libatomic1 libenchant1s2a libltsl7 unzip p7zip-full procps libqdbm14 \
-#RUN \
-#    touch /tmp/HOMEGEAR_STATIC_INSTALLATION; \
-#    wget https://apt.homegear.eu/Release.key && apt-key add Release.key && rm Release.key; \
-#    echo 'deb https://apt.homegear.eu/Debian/ stretch/' >> /etc/apt/sources.list.d/homegear.list; \
-#    apt-get update && apt-get -y install \
-#    homegear \
-#    homegear-management \
-#    homegear-webssh \
-#    homegear-adminui \
-#    homegear-nodes-core \
-#    homegear-nodes-extra \
-#    homegear-homematicbidcos \
-#    homegear-homematicwired \
-#    homegear-insteon \
-#    homegear-max \
-#    homegear-philipshue \
-#    homegear-sonos \
-#    homegear-kodi \
-#    homegear-ipcam \
-#    homegear-beckhoff \
-#    homegear-knx \
-#    homegear-enocean \
-#    homegear-intertechno \
-#    homegear-zwave \
-#    homegear-mbus \
-#    homegear-ccu2 \
-#    homegear-influxdb; \
-#    rm -f /etc/homegear/dh1024.pem; \
-#    rm -f /etc/homegear/homegear.crt; \
-#    rm -f /etc/homegear/homegear.key; \
-#    cp -R /etc/homegear /etc/homegear.config; \
-#    cp -R /var/lib/homegear /var/lib/homegear.data; \
-#    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-ENV architecture=${BUILD_ARCH}
-COPY script/installNightly.sh /installNightly.sh
+RUN apt-get update && apt-get -y install apt-transport-https wget ca-certificates apt-utils gnupg libzip4 libavahi-client3 libavahi-client-dev insserv locales lsb-release
 RUN \
     touch /tmp/HOMEGEAR_STATIC_INSTALLATION; \
-    wget https://homegear.eu/packages/Release.key && apt-key add Release.key && rm Release.key; \
-    echo 'deb https://homegear.eu/packages/Debian/ stretch/' >> /etc/apt/sources.list.d/homegear.list; \
-    chmod +x /installNightly.sh; \
-    /installNightly.sh; \
+    touch /.dockerenv; \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen; \
+    locale-gen; \
+    wget https://apt.homegear.eu/Release.key && apt-key add Release.key && rm Release.key; \
+    echo 'deb https://apt.homegear.eu/Debian/ buster/' >> /etc/apt/sources.list.d/homegear.list; \
+    apt-get update && apt-get -y install libhomegear-node homegear homegear-management homegear-webssh homegear-adminui homegear-ui homegear-nodes-core homegear-nodes-extra homegear-homematicbidcos homegear-homematicwired homegear-insteon homegear-max homegear-philipshue homegear-sonos homegear-kodi homegear-ipcam homegear-beckhoff homegear-knx homegear-enocean homegear-intertechno homegear-rsl homegear-rs2w homegear-mbus homegear-zwave homegear-zigbee homegear-ccu homegear-easyled homegear-easyled2 homegear-easycam homegear-influxdb; \
     rm -f /etc/homegear/dh1024.pem; \
     rm -f /etc/homegear/homegear.crt; \
     rm -f /etc/homegear/homegear.key; \
-    cp -R /etc/homegear /etc/homegear.config; \
-    cp -R /var/lib/homegear /var/lib/homegear.data; \
+    cp -a /etc/homegear /etc/homegear.config; \
+    cp -a /var/lib/homegear /var/lib/homegear.data; \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY script/run.sh /run.sh
