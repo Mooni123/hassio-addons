@@ -16,7 +16,7 @@ RUN \
     libavahi-client3 \
     ibxslt1.1 \
     libavahi-client-dev \
-    insserv
+    insserv locales lsb-release
 #RUN \
 #    touch /tmp/HOMEGEAR_STATIC_INSTALLATION; \
 #    wget https://apt.homegear.eu/Release.key && apt-key add Release.key && rm Release.key; \
