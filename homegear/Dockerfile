@@ -14,6 +14,7 @@ RUN \
     gnupg \
     libzip4 \
     libavahi-client3 \
+    ibxslt1.1 \
     libavahi-client-dev \
     insserv
 #RUN \
