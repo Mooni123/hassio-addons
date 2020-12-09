@@ -2,8 +2,8 @@
 ARG BUILD_FROM
 ARG BUILD_ARCH
 
-FROM $BUILD_FROM
-#FROM debian:buster-slim
+#FROM $BUILD_FROM
+FROM debian:buster-slim
 MAINTAINER peterhaaf (@github)
 
 
