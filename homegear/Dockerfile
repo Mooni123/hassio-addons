@@ -4,7 +4,7 @@ ARG BUILD_ARCH
 
 #FROM $BUILD_FROM
 FROM debian:buster-slim
-MAINTAINER peterhaaf (@github)
+MAINTAINER peterhaaf (peterhaaf@github)
 
 
 RUN apt-get update && apt-get -y install apt-transport-https wget ca-certificates apt-utils gnupg libzip4 libavahi-client3 libavahi-client-dev insserv locales lsb-release procps
@@ -27,4 +27,4 @@ COPY script/run.sh /run.sh
 RUN chmod +x /run.sh
 ENTRYPOINT ["/bin/bash", "-c", "/run.sh"]
 
-EXPOSE 2001 2002 2003
+EXPOSE 2001 2002 2003 2004
