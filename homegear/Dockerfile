@@ -14,7 +14,7 @@ RUN \
     gnupg \
     libzip4 \
     libavahi-client3 \
-    ibxslt1.1 \
+    ibxslt1.1 libedit2 libatomic1 libenchant1s2a libltsl7 unzip p7zip-full procps libqdbm14 \
     libavahi-client-dev \
     insserv locales lsb-release
 #RUN \
