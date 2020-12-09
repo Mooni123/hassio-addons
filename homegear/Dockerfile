@@ -3,7 +3,7 @@ ARG BUILD_FROM
 ARG BUILD_ARCH
 
 FROM $BUILD_FROM
-MAINTAINER Kreativmonkey <kreativmonkey@calyrium.org>
+MAINTAINER Peter
 
 
 RUN \
@@ -14,8 +14,8 @@ RUN \
     gnupg \
     libzip4 \
     libavahi-client3 \
-    libavahi-client-dev \
-    insserv locales lsb-release
+    libavahi-client-dev
+#    insserv locales lsb-release
 #libxslt1.1 libedit2 libatomic1 libenchant1s2a libltsl7 unzip p7zip-full procps libqdbm14 \
 #RUN \
 #    touch /tmp/HOMEGEAR_STATIC_INSTALLATION; \
