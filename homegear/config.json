@@ -1,6 +1,6 @@
 {
   "name": "Homegear",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "slug": "homegear",
   "description": "Homegear as a Hassio add-on",
   "arch": ["armv7", "armhf", "amd64"],
