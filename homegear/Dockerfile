@@ -2,9 +2,9 @@
 ARG BUILD_FROM
 ARG BUILD_ARCH
 
-#FROM $BUILD_FROM
-FROM debian:buster-slim
-MAINTAINER Peter
+FROM $BUILD_FROM
+#FROM debian:buster-slim
+MAINTAINER peterhaaf (@github)
 
 
 RUN apt-get update && apt-get -y install apt-transport-https wget ca-certificates apt-utils gnupg libzip4 libavahi-client3 libavahi-client-dev insserv locales lsb-release procps
