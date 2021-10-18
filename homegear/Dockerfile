@@ -5,7 +5,7 @@ ARG BUILD_ARCH
 #FROM $BUILD_FROM
 FROM homegear/homegear:nightly
 
-ENTRYPOINT ["/bin/bash", "-c", "/run.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "/start.sh"]
 
 EXPOSE 2003 2002 2003 2004 443 80
 
