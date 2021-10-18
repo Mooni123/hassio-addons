@@ -1,9 +1,9 @@
 {
   "name": "Homegear",
-  "version": "0.9.9.1.n",
+  "version": "0.9.9.2.n",
   "slug": "homegear",
   "description": "Homegear as a Hassio add-on",
-  "arch": ["armv7", "armhf", "amd64"],
+  "arch": ["armv7", "armhf", "amd64", "aarch64"],
   "startup": "services",
   "boot": "auto",
   "webui": "http://[HOST]:[PORT:2001]",
