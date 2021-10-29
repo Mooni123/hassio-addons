@@ -6,9 +6,9 @@ ARG BUILD_ARCH
 FROM homegear/homegear:nightly
 
 COPY script/prerun.sh /
-RUN chmod +x /prerun.sh; /prerun.sh
+RUN chmod +x /prerun.sh
 
-ENTRYPOINT ["/bin/bash", "-c", "/start.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "/prerun.sh; /start.sh"]
 
 EXPOSE 2003 2002 2003 2004 
 
