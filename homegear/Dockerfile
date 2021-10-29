@@ -24,8 +24,8 @@ ENV LC_ALL en_US.UTF-8
 
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
-COPY script/prestart.sh /prestart.sh
-RUN chmod +x /prestart.sh
-ENTRYPOINT ["/bin/bash", "-c", "/prestart.sh"]
+COPY script/prerun.sh /prerun.sh
+RUN chmod +x /prerun.sh
+ENTRYPOINT ["/bin/bash", "-c", "/prerun.sh"]
 
 EXPOSE 80 443 2001 2002 2003
