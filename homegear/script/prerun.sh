@@ -23,4 +23,4 @@ ls -l /etc/homegear
 ln -nfs /share/homegear/lib /var/lib/homegear
 ln -nfs /share/homegear/log /var/log/homegear
 
-tail -f /dev/zero
+/start.sh
