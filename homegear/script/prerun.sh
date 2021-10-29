@@ -15,12 +15,7 @@ USER_GID=${HOST_USER_GID:=$USER_GID}
 mkdir -p /config/homegear /share/homegear/lib /share/homegear/log
 chown $USER:$USER /config/homegear /share/homegear/lib /share/homegear/log
 rm -rf /etc/homegear /var/lib/homegear /var/log/homegear
-echo "before ln -s"
-ls -l /etc/homegear
 ln -nfs /config/homegear     /etc/homegear
-echo "after ln -s"
-ls -l /etc/homegear
 ln -nfs /share/homegear/lib /var/lib/homegear
 ln -nfs /share/homegear/log /var/log/homegear
-sleep 3600
 /start.sh
