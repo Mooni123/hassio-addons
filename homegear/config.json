@@ -1,6 +1,6 @@
 {
   "name": "Homegear",
-  "version": "0.9.9.16",
+  "version": "0.9.9.17",
   "slug": "homegear",
   "description": "Homegear as a Hassio add-on",
   "arch": ["armv7", "armhf", "amd64", "aarch64"],
@@ -22,6 +22,8 @@
 	  "share:rw"
   ],
   "ports": {
+    "80"  : 8080,
+    "443" : 8443,
     "2001": 2001,
     "2002": 2002,
     "2003": 2003,

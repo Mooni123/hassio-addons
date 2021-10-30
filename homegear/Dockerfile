@@ -28,4 +28,4 @@ COPY script/prerun.sh /prerun.sh
 RUN chmod +x /prerun.sh
 ENTRYPOINT ["/bin/bash", "-c", "/prerun.sh"]
 
-EXPOSE 2001 2002 2003 2004
+EXPOSE 80 443 2001 2002 2003 2004
