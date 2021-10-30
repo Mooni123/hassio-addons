@@ -18,5 +18,5 @@ rm -rf /etc/homegear /var/lib/homegear /var/log/homegear
 ln -nfs /config/homegear     /etc/homegear
 ln -nfs /share/homegear/lib /var/lib/homegear
 ln -nfs /share/homegear/log /var/log/homegear
-ln -s /usr/bin/python3 /usr/bin/python
+ln -s /usr/bin/python2 /usr/bin/python
 /start.sh
