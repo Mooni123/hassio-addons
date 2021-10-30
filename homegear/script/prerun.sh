@@ -8,9 +8,11 @@ USER_GID=$(id -g $USER)
 USER_ID=${HOST_USER_ID:=$USER_ID}
 USER_GID=${HOST_USER_GID:=$USER_GID}
 
-#sed -i -e "s/^${USER}:\([^:]*\):[0-9]*:[0-9]*/${USER}:\1:${USER_ID}:${USER_GID}/"  /etc/passwd
-#sed -i -e "s/^${USER}:\([^:]*\):[0-9]*/${USER}:\1:${USER_GID}/" /etc/group
-#touch /tmp/run-sh
+if [ $USER_ID -ne 0 ]; then
+ sed -i -e "s/^${USER}:\([^:]*\):[0-9]*:[0-9]*/${USER}:\1:${USER_ID}:${USER_GID}/"  /etc/passwd
+ sed -i -e "s/^${USER}:\([^:]*\):[0-9]*/${USER}:\1:${USER_GID}/" /etc/group
+ touch /tmp/run-sh
+fi
 
 mkdir -p /config/homegear /share/homegear/lib /share/homegear/log
 chown $USER:$USER /config/homegear /share/homegear/lib /share/homegear/log
